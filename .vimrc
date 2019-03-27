@@ -155,7 +155,7 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+"nnoremap <C-L> :nohl<CR><C-L>
 
 "------------------------------------------------------------
 
@@ -188,3 +188,7 @@ au BufNewFile,BufRead *.ejs set filetype=html
 
 " mac os clipboard
 set clipboard=unnamed
+
+" press return to temporarily get out of the highlighted search
+nnoremap <CR> :nohlsearch<CR><CR>
+
