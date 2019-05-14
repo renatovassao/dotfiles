@@ -4,10 +4,12 @@ if [[ ! -z "$TOUCHPAD_ID" ]]; then
     xinput set-button-map "$TOUCHPAD_ID" 1 1 3 4 5 6 7
 
     # enable tap to click
-    xinput set-prop "$TOUCHPAD_ID" 305 1
+    TAPPING_PROPERTY=$(xinput list-props $TOUCHPAD_ID | grep "Tapping Enabled (" | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
+    xinput set-prop "$TOUCHPAD_ID" "$TAPPING_PROPERTY" 1
     
     # disable tapping drag
-    xinput set-prop "$TOUCHPAD_ID" 307 0
+    TAPPING_DRAG_PROPERTY=$(xinput list-props $TOUCHPAD_ID | grep "Tapping Drag Enabled (" | awk -F '(' '{print $2}' | awk -F ')' '{print $1}')
+    xinput set-prop "$TOUCHPAD_ID" $TAPPING_DRAG_PROPERTY 0
 fi
 
 # make dual monitor if monitor is available (HDMI)
