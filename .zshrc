@@ -92,3 +92,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Yarn
+export PATH="$PATH:/opt/yarn-1.15.2/bin:`yarn global bin`"
+
+# Zak
+export ZAK="$HOME/work/zak/zak-api"
+export ZAK_INT="$HOME/work/zak/zak-api/src/cloud/integration/b1food"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias killnode='kill $(lsof -i tcp:8000 | grep node | awk '\''{print $2}'\'')'
