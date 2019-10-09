@@ -155,7 +155,7 @@ map Y y$
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-"nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <C-L> :nohl<CR><C-L>
 
 "------------------------------------------------------------
 
@@ -179,16 +179,33 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 
 " ale
-let g:ale_fix_on_save = 1
+"let g:ale_fix_on_save = 1
 highlight ALEWarning ctermbg=DarkGray
 highlight ALEError ctermbg=DarkGray
+let g:ale_set_ballons = 1
 
 " ejs syntax highlighting
 au BufNewFile,BufRead *.ejs set filetype=html
 
-" mac os clipboard
-set clipboard=unnamed
+" mac os clipboard: unnamed
+" x11 clipboard: unnamedplus
+set clipboard=unnamedplus
 
 " press return to temporarily get out of the highlighted search
 nnoremap <CR> :nohlsearch<CR><CR>
 
+" use json binding for sdkgen files
+au BufNewFile,BufRead *.sdkgen set syntax=javascript
+
+" parcel watch
+set nobackup
+set nowritebackup
+
+" youcompleteme plugin
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" TS SERVER STOP FREEZING
+"let g:ale_typescript_tsserver_use_global=
+let g:ale_linters_ignore = {'typescript': ['tslint']}
+
+autocmd FileType asm set ft=nasm
