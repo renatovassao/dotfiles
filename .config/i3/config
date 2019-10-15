@@ -229,4 +229,4 @@ bindsym Print exec "scrot -u"
 
 focus_on_window_activation focus
 
-exec_always --no-startup-id "$HOME/work_startup.sh"
+exec --no-startup-id "$HOME/work_startup.sh"
